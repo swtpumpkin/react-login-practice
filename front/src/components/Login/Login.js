@@ -6,7 +6,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      user_id: '',
       password: ''
     };
     this.handleClick = this.handleClick.bind(this);
@@ -14,11 +14,11 @@ class Login extends Component {
   }
   handleClick() {
     const login_info = {
-      username: this.state.username,
+      user_id: this.state.user_id,
       password: this.state.password
     };
     console.log(login_info)
-    const req_address = `${API_HOST}/admin/login`;
+    const req_address = `${API_HOST}/auth/login`;
     axios.post(req_address, login_info)
       .then(function (response) {
         console.log(response);
@@ -26,12 +26,12 @@ class Login extends Component {
           console.log("Login successfull");
         }
         else if (response.data.code === 204) {
-          console.log("Username password do not match");
-          alert("username password do not match")
+          console.log("user_id password do not match");
+          alert("user_id password do not match")
         }
         else {
-          console.log("Username does not exists");
-          alert("Username does not exist");
+          console.log("user_id does not exists");
+          alert("user_id does not exist");
         }
       })
       .catch(function (error) {
@@ -53,10 +53,10 @@ class Login extends Component {
           </label>
           <input
             type="text"
-            name="username"
+            name="user_id"
             placeholder="id"
             onChange={event =>
-              this.setState({ username: event.target.value })
+              this.setState({ user_id: event.target.value })
             }
           />
           <label>
