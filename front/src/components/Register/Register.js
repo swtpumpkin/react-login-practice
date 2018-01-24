@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import API_HOST from '../../config';
 
-class Login extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class Login extends Component {
       password: this.state.password
     };
     console.log(login_info)
-    const req_address = `${API_HOST}/auth/login`;
+    const req_address = `${API_HOST}/auth/register`;
     axios.post(req_address, login_info)
       .then(function (response) {
         console.log(response);
@@ -39,14 +39,14 @@ class Login extends Component {
       });
   }
   enterSubmit(e) {
-    if(e.charCode === 13) {
+    if (e.charCode === 13) {
       this.handleClick();
     }
   }
-  render(){
+  render() {
     return (
       <div>
-        <h1>로그인</h1>
+        <h1>회원가입</h1>
         <form>
           <label>
             아이디
@@ -75,7 +75,7 @@ class Login extends Component {
             type="button"
             onClick={this.handleClick}
           >
-            로그인
+            회원가입
           </button>
         </form>
       </div>
@@ -83,4 +83,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Register;
