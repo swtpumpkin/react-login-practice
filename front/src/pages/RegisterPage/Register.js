@@ -23,7 +23,7 @@ class Register extends Component {
       .then(function (response) {
         console.log(response);
         if (response.data.code === 200) {
-          console.log("Login successfull");
+          console.log("Register successfull");
         }
         else if (response.data.code === 204) {
           console.log("user_id password do not match");
