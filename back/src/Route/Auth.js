@@ -30,7 +30,6 @@ router.get('/register', (req, res) => {
 
 // Passport Serializer
 passport.serializeUser((user, done) => {
-  console.log('Serializser');
   done(null, user.id);
 });
 
